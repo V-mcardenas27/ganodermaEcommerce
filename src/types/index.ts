@@ -69,7 +69,7 @@ export interface CheckoutFormData {
 // Respuesta de la API de checkout
 export interface CheckoutResponse {
   success: boolean
-  init_point?: string   // URL de pago de MercadoPago
+  init_point?: string
   numero_orden?: string
   error?: string
 }
