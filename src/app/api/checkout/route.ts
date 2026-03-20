@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     }
 
     const { nombre, email, telefono, ciudad, direccion, cantidad } = parsed.data
-    const precioUnitario = 100
+    const precioUnitario = 1000
     const total = precioUnitario * cantidad
 
     // Crear o actualizar cliente
