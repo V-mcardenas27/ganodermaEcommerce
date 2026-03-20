@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { formatFecha, formatPrecio } from '@/lib/utils'
 
-export const metadata: Metadata = { title: 'Clientes — GanoVita Admin' }
+export const metadata: Metadata = { title: 'Clientes — GanodermaVida Admin' }
 export const dynamic = 'force-dynamic'
 
 async function getClientes() {
@@ -60,7 +60,7 @@ export default async function ClientesPage() {
                 <td className="px-4 py-3">
                   {c.telefono ? (
                     <a
-                      href={`https://wa.me/57${c.telefono.replace(/\D/g,'')}?text=${encodeURIComponent(`Hola ${c.nombre}, te escribimos de GanoVita`)}`}
+                      href={`https://wa.me/57${c.telefono.replace(/\D/g,'')}?text=${encodeURIComponent(`Hola ${c.nombre}, te escribimos de GanodermaVida`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-sans text-sm text-[#25D366] hover:underline"

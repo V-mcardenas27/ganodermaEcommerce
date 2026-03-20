@@ -1,7 +1,7 @@
 import { EstadisticasView } from '@/components/admin/EstadisticasView'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = { title: 'Estadísticas — GanoVita Admin' }
+export const metadata: Metadata = { title: 'Estadísticas — GanodermaVida Admin' }
 export const dynamic = 'force-dynamic'
 
 async function getStats() {

@@ -31,7 +31,7 @@ export async function GET(req: NextRequest) {
   let msgAdmin = ''
 
   if (tipo === 'enviado') {
-    msgCliente = `¡Hola ${nombre}! 🚚 Tu pedido *${orden}* de Cápsulas Ganoderma Lucidum ha sido enviado. Pronto lo recibirás en tu dirección. ¡Gracias por confiar en GanoVita! 🍄`
+    msgCliente = `¡Hola ${nombre}! 🚚 Tu pedido *${orden}* de Cápsulas Ganoderma Lucidum ha sido enviado. Pronto lo recibirás en tu dirección. ¡Gracias por confiar en GanodermaVida! 🍄`
     msgAdmin = `📦 Pedido *${orden}* marcado como ENVIADO. Cliente: ${nombre}`
   } else if (tipo === 'entregado') {
     msgCliente = `¡Hola ${nombre}! ✅ Tu pedido *${orden}* ha sido entregado. Esperamos que disfrutes tu Ganoderma Lucidum. ¡Nos encantaría conocer tu experiencia! 🍄`

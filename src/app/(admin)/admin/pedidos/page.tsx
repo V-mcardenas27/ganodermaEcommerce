@@ -1,7 +1,7 @@
 import { PedidosTable } from '@/components/admin/PedidosTable'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = { title: 'Pedidos — GanoVita Admin' }
+export const metadata: Metadata = { title: 'Pedidos — GanodermaVida Admin' }
 export const dynamic = 'force-dynamic'
 
 async function getPedidos(estado?: string, buscar?: string) {

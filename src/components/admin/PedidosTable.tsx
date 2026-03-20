@@ -238,7 +238,7 @@ export function PedidosTable({ pedidos }: { pedidos: Pedido[] }) {
                     {/* Botón enviado */}
                     {pedidoActivo.estado === 'enviado' && (
                     <a
-                        href={`https://wa.me/57${pedidoActivo.clientes.telefono.replace(/\D/g,'')}?text=${encodeURIComponent(`¡Hola ${pedidoActivo.clientes.nombre}! 🚚 Tu pedido *${pedidoActivo.numero_orden}* de Cápsulas Ganoderma Lucidum ha sido enviado. Pronto lo recibirás. ¡Gracias por confiar en GanoVita! 🍄`)}`}
+                        href={`https://wa.me/57${pedidoActivo.clientes.telefono.replace(/\D/g,'')}?text=${encodeURIComponent(`¡Hola ${pedidoActivo.clientes.nombre}! 🚚 Tu pedido *${pedidoActivo.numero_orden}* de Cápsulas Ganoderma Lucidum ha sido enviado. Pronto lo recibirás. ¡Gracias por confiar en GanodermaVida! 🍄`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-sans text-xs tracking-widest uppercase px-4 py-2.5 hover:bg-[#1da851] transition-colors"
@@ -267,7 +267,7 @@ export function PedidosTable({ pedidos }: { pedidos: Pedido[] }) {
 
                     {/* Botón genérico */}
                     <a
-                    href={`https://wa.me/57${pedidoActivo.clientes.telefono.replace(/\D/g,'')}?text=${encodeURIComponent(`Hola ${pedidoActivo.clientes.nombre}, te escribimos de GanoVita sobre tu pedido ${pedidoActivo.numero_orden}`)}`}
+                    href={`https://wa.me/57${pedidoActivo.clientes.telefono.replace(/\D/g,'')}?text=${encodeURIComponent(`Hola ${pedidoActivo.clientes.nombre}, te escribimos de GanodermaVida sobre tu pedido ${pedidoActivo.numero_orden}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 border border-[#25D366] text-[#25D366] font-sans text-xs tracking-widest uppercase px-4 py-2.5 hover:bg-[#25D366] hover:text-white transition-colors"

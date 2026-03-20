@@ -3,7 +3,7 @@ import { XCircle } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pago cancelado — GanoVita',
+  title: 'Pago cancelado — GanodermaVida',
   robots: { index: false },
 }
 

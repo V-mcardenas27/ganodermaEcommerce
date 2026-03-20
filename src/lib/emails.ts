@@ -30,7 +30,7 @@ export function emailConfirmacionCliente({
         <tr>
           <td style="background:#1a2e1a;padding:32px 40px;text-align:center;">
             <h1 style="margin:0;font-family:Georgia,serif;font-size:28px;font-weight:300;color:#f5f0e8;">
-              Gano<span style="color:#e6a91f;font-style:italic;">Vita</span>
+              Ganoderma<span style="color:#e6a91f;font-style:italic;">Vida</span>
             </h1>
           </td>
         </tr>
@@ -105,10 +105,7 @@ export function emailConfirmacionCliente({
         <tr>
           <td style="background:#1a2e1a;padding:24px 40px;text-align:center;">
             <p style="margin:0;font-size:12px;color:#8aab6e;">
-              © 2025 GanoVita · Todos los derechos reservados
-            </p>
-            <p style="margin:8px 0 0;font-size:11px;color:#4a7c4a;">
-              Hecho con 🍄 y amor por la naturaleza
+              © 2026 GanodermaVida · Todos los derechos reservados
             </p>
           </td>
         </tr>
@@ -154,7 +151,7 @@ export function emailNuevoPedidoAdmin({
         <tr>
           <td style="background:#1a2e1a;padding:24px 40px;">
             <h1 style="margin:0;font-family:Georgia,serif;font-size:22px;font-weight:300;color:#f5f0e8;">
-              Gano<span style="color:#e6a91f;font-style:italic;">Vita</span>
+              Ganoderma<span style="color:#e6a91f;font-style:italic;">Vida</span>
               <span style="font-size:14px;color:#8aab6e;margin-left:12px;">· Panel Admin</span>
             </h1>
           </td>
@@ -199,7 +196,7 @@ export function emailNuevoPedidoAdmin({
 
         <tr>
           <td style="background:#1a2e1a;padding:20px 40px;text-align:center;">
-            <p style="margin:0;font-size:11px;color:#4a7c4a;">GanoVita · Panel de administración</p>
+            <p style="margin:0;font-size:11px;color:#4a7c4a;">GanodermaVida · Panel de administración</p>
           </td>
         </tr>
 
@@ -238,7 +235,7 @@ export function emailEstadoActualizado({
         <tr>
           <td style="background:#1a2e1a;padding:32px 40px;text-align:center;">
             <h1 style="margin:0;font-family:Georgia,serif;font-size:28px;font-weight:300;color:#f5f0e8;">
-              Gano<span style="color:#e6a91f;font-style:italic;">Vita</span>
+              Ganoderma<span style="color:#e6a91f;font-style:italic;">Vida</span>
             </h1>
           </td>
         </tr>
@@ -268,7 +265,7 @@ export function emailEstadoActualizado({
 
         <tr>
           <td style="background:#1a2e1a;padding:24px 40px;text-align:center;">
-            <p style="margin:0;font-size:12px;color:#8aab6e;">© 2025 GanoVita · Todos los derechos reservados</p>
+            <p style="margin:0;font-size:12px;color:#8aab6e;">© 2025 GanodermaVida · Todos los derechos reservados</p>
           </td>
         </tr>
 
