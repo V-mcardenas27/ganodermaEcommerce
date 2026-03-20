@@ -44,7 +44,7 @@ export async function crearPreferencia({
         failure: `${appUrl}/cancelacion`,
         pending: `${appUrl}/confirmacion`,
       },
-      // auto_return: 'approved', // descomentar en producción
+      auto_return: 'approved', // descomentar en producción
       notification_url: `${appUrl}/api/webhooks/mercadopago`,
       statement_descriptor: 'GANAVITA',
     },

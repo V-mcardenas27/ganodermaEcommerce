@@ -9,7 +9,7 @@ import { formatPrecio } from '@/lib/utils'
 import type { CheckoutResponse } from '@/types'
 
 const PRECIO_UNITARIO = 59800
-const WA_NUMBER = '573000000000'
+const WA_NUMBER = '573217657670'
 
 export function CheckoutForm() {
   const [loading, setLoading] = useState(false)
