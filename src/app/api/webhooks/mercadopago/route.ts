@@ -71,6 +71,17 @@ export async function POST(req: NextRequest) {
           nota: `Pago aprobado por MercadoPago. ID: ${paymentId}`,
         })
 
+        console.log(`[NUEVO PEDIDO] Orden: ${numeroOrden} | Monto: $${pago.transaction_amount} COP`)
+
+        // Log de nuevo pedido para el admin
+        const adminWA = process.env.ADMIN_WA_NUMBER
+        if (adminWA) {
+        const msgAdmin = encodeURIComponent(
+            `🛒 *Nuevo pedido pagado*\nOrden: ${numeroOrden}\nMonto: $${pago.transaction_amount?.toLocaleString('es-CO')} COP\nVer en panel: ${process.env.NEXT_PUBLIC_APP_URL}/admin/pedidos`
+        )
+        console.log(`[ADMIN WA] https://wa.me/${adminWA}?text=${msgAdmin}`)
+        }
+
     } else if (estadoPago === 'rejected') {
       await supabaseAdmin
         .from('pedidos')
