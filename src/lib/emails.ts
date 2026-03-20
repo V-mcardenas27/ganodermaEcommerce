@@ -265,7 +265,7 @@ export function emailEstadoActualizado({
 
         <tr>
           <td style="background:#1a2e1a;padding:24px 40px;text-align:center;">
-            <p style="margin:0;font-size:12px;color:#8aab6e;">© 2025 GanodermaVida · Todos los derechos reservados</p>
+            <p style="margin:0;font-size:12px;color:#8aab6e;">© 2026 GanodermaVida · Todos los derechos reservados</p>
           </td>
         </tr>
 
