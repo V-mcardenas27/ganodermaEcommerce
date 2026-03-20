@@ -8,7 +8,7 @@ import { FormField, Input } from '@/components/ui/FormField'
 import { formatPrecio } from '@/lib/utils'
 import type { CheckoutResponse } from '@/types'
 
-const PRECIO_UNITARIO = 1000
+const PRECIO_UNITARIO = 59800
 const WA_NUMBER = '573000000000'
 
 export function CheckoutForm() {

@@ -1,6 +1,8 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import { SectionLabel } from '@/components/ui/SectionLabel'
+import ganoimg from '../../../public/gano-hongo.webp'
 
 export function HeroSection() {
   return (
@@ -14,17 +16,17 @@ export function HeroSection() {
       {/* Contenido izquierdo */}
       <div className="relative z-10 flex flex-col justify-center px-8 md:px-16 pt-32 pb-16 animate-[fadeUp_0.9s_ease_both]">
         <SectionLabel light>
-          Medicina ancestral china · +4000 años de sabiduría
+          ¡Revitaliza tu salud con Ganoderma Lucidum!
         </SectionLabel>
 
         <h1 className="font-serif text-5xl md:text-7xl font-light text-cream leading-[1.1] mb-6">
           El hongo de<br />
-          <em className="text-gold not-italic font-light">la inmortalidad</em>
+          <em className="text-gold not-italic font-light">la eterna juventud</em>
         </h1>
 
         <p className="font-sans text-sm font-light text-mist leading-relaxed max-w-sm mb-10">
-          Ganoderma Lucidum cultivado en las condiciones óptimas de la naturaleza.
-          Potencia tu bienestar desde adentro con el poder del Reishi puro.
+          Ganoderma Lucidum, mejora tu sitema inmune, aumenta
+          tu energía, y te ayuda a combatir el cansancio y el envejecimiento.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
@@ -51,9 +53,9 @@ export function HeroSection() {
         <div className="absolute w-[380px] h-[380px] rounded-full border border-amber/10 animate-[spin_25s_linear_infinite_reverse]" />
 
         {/* Ícono principal */}
-        <span className="relative z-10 text-[14rem] leading-none drop-shadow-[0_0_60px_rgba(74,124,74,0.5)] animate-float select-none">
-          🍄
-        </span>
+        <Image src={ganoimg} width={400} height={30} alt='' className="relative z-10 text-[14rem] leading-none drop-shadow-[0_0_60px_rgba(74,124,74,0.5)] animate-float select-none">
+          
+        </Image>
 
         {/* Badge inferior */}
         <div className="absolute bottom-16 right-16 z-10 border border-sage/30 bg-forest/70 backdrop-blur-sm px-5 py-4 max-w-[180px]">

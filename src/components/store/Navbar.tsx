@@ -17,7 +17,7 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-5 flex items-center justify-between bg-cream/90 backdrop-blur-md border-b border-sage/20">
       {/* Logo */}
       <Link href="/" className="font-serif text-2xl font-semibold text-forest tracking-wide">
-        Gano<span className="text-amber italic">Vita</span>
+        Ganoderma<span className="text-amber italic">Vida</span>
       </Link>
 
       {/* Desktop links */}

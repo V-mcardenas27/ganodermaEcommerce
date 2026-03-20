@@ -1,4 +1,6 @@
 import { SectionLabel } from '@/components/ui/SectionLabel'
+import Image from 'next/image'
+import ganoImage from '../../../public/gano-hongo2.webp'
 
 const stats = [
   { num: '100%', label: 'Natural & puro' },
@@ -10,7 +12,7 @@ export function AboutSection() {
   return (
     <section id="nosotros" className="py-24 px-8 md:px-16 bg-forest grid md:grid-cols-2 gap-20 items-center">
       <div>
-        <SectionLabel light>Nuestra historia</SectionLabel>
+        <SectionLabel light>Historia</SectionLabel>
         <h2 className="font-serif text-4xl md:text-5xl font-light text-cream leading-tight mb-8">
           Cultivado con <em className="text-sage">respeto</em><br />
           por la naturaleza
@@ -39,10 +41,9 @@ export function AboutSection() {
 
       {/* Visual */}
       <div className="hidden md:flex items-center justify-center relative">
-        <div className="absolute inset-0 rounded-full border border-sage/10" />
-        <span className="text-[10rem] leading-none animate-float select-none drop-shadow-[0_0_80px_rgba(230,169,31,0.2)]">
-          🌿
-        </span>
+        <div className="absolute inset-0 rounded-full" />
+        <Image src={ganoImage} width={400} height={400} alt='' className="text-[10rem] leading-none animate-float select-none drop-shadow-[0_0_80px_rgba(230,169,31,0.2)]">
+        </Image>
       </div>
     </section>
   )

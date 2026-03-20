@@ -5,7 +5,7 @@ export function Footer() {
         {/* Marca */}
         <div>
           <div className="font-serif text-2xl text-cream mb-3">
-            Gano<span className="text-gold italic">Vita</span>
+            Ganoderma<span className="text-gold italic">Vida</span>
           </div>
           <p className="font-sans text-[0.82rem] font-light text-mist leading-relaxed max-w-[28ch]">
             Distribuidores de Ganoderma Lucidum premium. Naturaleza, ciencia
@@ -35,23 +35,25 @@ export function Footer() {
             Información
           </div>
           <ul className="space-y-2">
-            {['¿Qué es el Ganoderma?', 'Beneficios', 'Modo de uso', 'Preguntas frecuentes', 'Contacto'].map((item) => (
-              <li key={item}>
-                <a href="#" className="font-sans text-[0.82rem] text-mist hover:text-gold transition-colors">
-                  {item}
+            {['¿Qué es el Ganoderma?', 'Beneficios', 'Modo de uso', 'Preguntas frecuentes'].map((item) => (
+                <li key={item}>
+                    <a href="#" className="font-sans text-[0.82rem] text-mist hover:text-gold transition-colors">
+                    {item}
+                    </a>
+                </li>
+                ))}
+                <li>
+                <a href="/seguimiento" className="font-sans text-[0.82rem] text-mist hover:text-gold transition-colors">
+                    Seguimiento de pedido
                 </a>
-              </li>
-            ))}
+                </li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-sage/15 pt-8 flex flex-col md:flex-row justify-between items-center gap-3">
         <p className="font-sans text-[0.75rem] text-mist/50">
-          © 2025 GanoVita — Todos los derechos reservados
-        </p>
-        <p className="font-sans text-[0.75rem] text-mist/50">
-          Hecho con 🍄 y amor por la naturaleza
+          © 2026 GanodermaVida — Todos los derechos reservados
         </p>
       </div>
     </footer>

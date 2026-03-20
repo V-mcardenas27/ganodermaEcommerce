@@ -14,7 +14,7 @@ export default function CheckoutPage() {
       {/* Header */}
       <header className="bg-forest px-6 md:px-16 py-5 flex items-center justify-between">
         <Link href="/" className="font-serif text-xl text-cream">
-          Gano<span className="text-gold italic">Vita</span>
+          Ganoderma<span className="text-gold italic">Vida</span>
         </Link>
         <Link
           href="/"

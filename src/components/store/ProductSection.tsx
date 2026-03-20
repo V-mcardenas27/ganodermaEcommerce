@@ -1,7 +1,9 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { Badge } from '@/components/ui/Badge'
 import { formatPrecio } from '@/lib/utils'
+import productImage from '../../../public/product.png'
 
 const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER ?? '573000000000'
 const WA_MSG = encodeURIComponent(
@@ -36,9 +38,8 @@ export function ProductSection() {
 
           <Badge className="absolute top-6 left-6 z-10">Producto estrella</Badge>
 
-          <span className="relative z-10 text-[9rem] leading-none animate-float select-none drop-shadow-[0_0_60px_rgba(74,124,74,0.5)]">
-            💊
-          </span>
+          <Image src={productImage} width={300} height={100} alt='' className="relative z-10 text-[9rem] leading-none animate-float select-none drop-shadow-[0_0_60px_rgba(74,124,74,0.5)]">
+          </Image>
 
           <div className="absolute bottom-6 right-6 z-10 border border-sage/30 p-4 text-center">
             <span className="font-serif text-4xl text-gold font-light block leading-none">60</span>
@@ -49,7 +50,7 @@ export function ProductSection() {
         {/* Panel info */}
         <div className="bg-parchment p-10 md:p-14 flex flex-col justify-center">
           <div className="flex items-center gap-2 text-[0.7rem] font-sans tracking-[0.2em] uppercase text-amber mb-3">
-            Ganoderma Lucidum · Reishi
+            Ganoderma Lucidum
             <span className="w-8 h-px bg-amber" />
           </div>
 
@@ -84,7 +85,7 @@ export function ProductSection() {
           <div className="pt-6 border-t border-sage/15">
             <div className="font-serif text-5xl font-light text-forest mb-6">
               <sup className="text-xl text-soft font-sans font-light">$</sup>
-              95.000
+              59.800
               <sub className="text-base text-soft font-sans font-light ml-1">COP</sub>
             </div>
 

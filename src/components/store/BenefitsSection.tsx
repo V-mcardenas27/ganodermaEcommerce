@@ -1,12 +1,37 @@
+import Image from 'next/image'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 
 const beneficios = [
-  { icon: '🛡️', nombre: 'Sistema Inmune',        desc: 'Los beta-glucanos estimulan y modulan las defensas naturales del organismo, fortaleciéndolo ante enfermedades.' },
-  { icon: '🧠', nombre: 'Claridad Mental',        desc: 'Adaptógeno natural que reduce el cortisol, mejora la concentración y combate la fatiga mental crónica.' },
-  { icon: '❤️', nombre: 'Salud Cardiovascular',   desc: 'Regula la presión arterial, reduce el colesterol LDL y mejora la circulación gracias a sus triterpenos activos.' },
-  { icon: '😴', nombre: 'Sueño Profundo',         desc: 'Favorece el descanso reparador y reduce el insomnio al equilibrar el sistema nervioso.' },
-  { icon: '⚡', nombre: 'Energía Vital',           desc: 'Mejora la oxigenación celular y la producción de ATP brindando energía sostenida sin efectos rebote.' },
-  { icon: '🌿', nombre: 'Antioxidante Potente',   desc: 'Neutraliza los radicales libres que aceleran el envejecimiento celular, protegiendo órganos y tejidos.' },
+  {
+    icon: '/icons/inmune.png',
+    nombre: 'Sistema Inmune',
+    desc: 'Los beta-glucanos estimulan y modulan las defensas naturales del organismo, fortaleciéndolo ante enfermedades.',
+  },
+  {
+    icon: '/icons/mental.png',
+    nombre: 'Claridad Mental',
+    desc: 'Adaptógeno natural que reduce el cortisol, mejora la concentración y combate la fatiga mental crónica.',
+  },
+  {
+    icon: '/icons/cardiovascular.png',
+    nombre: 'Salud Cardiovascular',
+    desc: 'Regula la presión arterial, reduce el colesterol LDL y mejora la circulación gracias a sus triterpenos activos.',
+  },
+  {
+    icon: '/icons/sueno.png',
+    nombre: 'Sueño Profundo',
+    desc: 'Favorece el descanso reparador y reduce el insomnio al equilibrar el sistema nervioso.',
+  },
+  {
+    icon: '/icons/energia.png',
+    nombre: 'Energía Vital',
+    desc: 'Mejora la oxigenación celular y la producción de ATP brindando energía sostenida sin efectos rebote.',
+  },
+  {
+    icon: '/icons/antioxidante.png',
+    nombre: 'Antioxidante Potente',
+    desc: 'Neutraliza los radicales libres que aceleran el envejecimiento celular, protegiendo órganos y tejidos.',
+  },
 ]
 
 export function BenefitsSection() {
@@ -36,9 +61,21 @@ export function BenefitsSection() {
             key={b.nombre}
             className="bg-parchment hover:bg-cream transition-colors duration-300 p-10"
           >
-            <div className="text-4xl mb-5">{b.icon}</div>
-            <h3 className="font-serif text-xl font-semibold text-forest mb-2">{b.nombre}</h3>
-            <p className="font-sans text-[0.83rem] text-soft leading-relaxed">{b.desc}</p>
+            <div className="mb-5">
+              <Image
+                src={b.icon}
+                alt={b.nombre}
+                width={40}
+                height={40}
+                className="object-contain"
+              />
+            </div>
+            <h3 className="font-serif text-xl font-semibold text-forest mb-2">
+              {b.nombre}
+            </h3>
+            <p className="font-sans text-[0.83rem] text-soft leading-relaxed">
+              {b.desc}
+            </p>
           </div>
         ))}
       </div>
