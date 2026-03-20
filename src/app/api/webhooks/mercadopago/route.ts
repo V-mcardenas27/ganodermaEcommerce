@@ -2,12 +2,13 @@ export const dynamic = 'force-dynamic'
 import { NextRequest, NextResponse } from 'next/server'
 import { MercadoPagoConfig, Payment } from 'mercadopago'
 import { supabaseAdmin } from '@/lib/supabase'
+import { resend, FROM_EMAIL } from '@/lib/resend'
+import { emailConfirmacionCliente, emailNuevoPedidoAdmin } from '@/lib/emails'
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
 
-    // MercadoPago envía diferentes tipos de notificaciones
     if (body.type !== 'payment') {
       return NextResponse.json({ ok: true })
     }
@@ -17,7 +18,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true })
     }
 
-    // Consultar el pago en MercadoPago para verificarlo
     const client = new MercadoPagoConfig({
       accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN!,
     })
@@ -25,13 +25,12 @@ export async function POST(req: NextRequest) {
     const pago = await paymentClient.get({ id: paymentId })
 
     const numeroOrden = pago.external_reference
-    const estadoPago = pago.status // approved, rejected, pending
+    const estadoPago = pago.status
 
     if (!numeroOrden) {
       return NextResponse.json({ ok: true })
     }
 
-    // Buscar el pedido por número de orden
     const { data: pedido } = await supabaseAdmin
       .from('pedidos')
       .select('id, estado')
@@ -43,7 +42,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true })
     }
 
-    // Registrar la transacción
     await supabaseAdmin
       .from('transacciones')
       .insert({
@@ -56,7 +54,6 @@ export async function POST(req: NextRequest) {
         raw_data: pago as unknown as Record<string, unknown>,
       })
 
-    // Actualizar estado del pedido según respuesta de MP
     if (estadoPago === 'approved') {
       await supabaseAdmin
         .from('pedidos')
@@ -71,16 +68,59 @@ export async function POST(req: NextRequest) {
           nota: `Pago aprobado por MercadoPago. ID: ${paymentId}`,
         })
 
-        console.log(`[NUEVO PEDIDO] Orden: ${numeroOrden} | Monto: $${pago.transaction_amount} COP`)
+      console.log(`[NUEVO PEDIDO] Orden: ${numeroOrden} | Monto: $${pago.transaction_amount} COP`)
 
-        // Log de nuevo pedido para el admin
-        const adminWA = process.env.ADMIN_WA_NUMBER
-        if (adminWA) {
-        const msgAdmin = encodeURIComponent(
-            `🛒 *Nuevo pedido pagado*\nOrden: ${numeroOrden}\nMonto: $${pago.transaction_amount?.toLocaleString('es-CO')} COP\nVer en panel: ${process.env.NEXT_PUBLIC_APP_URL}/admin/pedidos`
-        )
-        console.log(`[ADMIN WA] https://wa.me/${adminWA}?text=${msgAdmin}`)
+      // ── Emails automáticos ──────────────────────────────
+      const { data: pedidoCompleto } = await supabaseAdmin
+        .from('pedidos')
+        .select('*, clientes(*)')
+        .eq('id', pedido.id)
+        .single()
+
+      if (pedidoCompleto?.clientes?.email) {
+        const cliente = pedidoCompleto.clientes
+
+        // Email al cliente
+        const templateCliente = emailConfirmacionCliente({
+          nombre: cliente.nombre,
+          orden: pedidoCompleto.numero_orden,
+          total: pedidoCompleto.total,
+          producto: pedidoCompleto.producto,
+          cantidad: pedidoCompleto.cantidad,
+          direccion: cliente.direccion ?? '',
+          ciudad: cliente.ciudad ?? '',
+        })
+
+        await resend.emails.send({
+          from: FROM_EMAIL,
+          to: cliente.email,
+          subject: templateCliente.subject,
+          html: templateCliente.html,
+        })
+
+        // Email al admin
+        const adminEmail = process.env.ADMIN_EMAIL
+        if (adminEmail) {
+          const templateAdmin = emailNuevoPedidoAdmin({
+            orden: pedidoCompleto.numero_orden,
+            nombreCliente: cliente.nombre,
+            email: cliente.email,
+            telefono: cliente.telefono ?? '—',
+            total: pedidoCompleto.total,
+            ciudad: cliente.ciudad ?? '—',
+            direccion: cliente.direccion ?? '—',
+            appUrl: process.env.NEXT_PUBLIC_APP_URL!,
+          })
+
+          await resend.emails.send({
+            from: FROM_EMAIL,
+            to: adminEmail,
+            subject: templateAdmin.subject,
+            html: templateAdmin.html,
+          })
         }
+      }
+      // ────────────────────────────────────────────────────
 
     } else if (estadoPago === 'rejected') {
       await supabaseAdmin
@@ -101,7 +141,6 @@ export async function POST(req: NextRequest) {
 
   } catch (err) {
     console.error('[Webhook MP]', err)
-    // Siempre retornar 200 a MercadoPago para evitar reintentos
     return NextResponse.json({ ok: true })
   }
 }
