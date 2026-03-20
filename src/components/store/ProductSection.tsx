@@ -28,6 +28,7 @@ export function ProductSection() {
         <em className="text-fern">una sola misión</em>
       </h2>
 
+
       {/* Showcase */}
       <div className="grid md:grid-cols-2 overflow-hidden">
         {/* Panel visual */}
