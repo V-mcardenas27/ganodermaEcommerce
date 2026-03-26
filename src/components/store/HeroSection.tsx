@@ -24,7 +24,7 @@ export function HeroSection() {
           <em className="text-gold not-italic font-light">la eterna juventud</em>
         </h1>
 
-        <p className="font-sans text-sm font-light text-mist leading-relaxed max-w-sm mb-10">
+        <p className="font-sans text-lg font-light text-mist leading-relaxed max-w-sm mb-10">
           Ganoderma Lucidum, mejora tu sitema inmune, aumenta
           tu energía, y te ayuda a combatir el cansancio y el envejecimiento.
         </p>
@@ -60,7 +60,7 @@ export function HeroSection() {
         {/* Badge inferior */}
         <div className="absolute bottom-16 right-16 z-10 border border-sage/30 bg-forest/70 backdrop-blur-sm px-5 py-4 max-w-[180px]">
           <span className="font-serif text-4xl text-gold font-light block leading-none mb-1">+500</span>
-          <span className="font-sans text-[0.72rem] text-mist leading-relaxed">
+          <span className="font-sans text-[0.83rem] text-mist leading-relaxed">
             compuestos bioactivos únicos en el Ganoderma Lucidum
           </span>
         </div>

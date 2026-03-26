@@ -24,7 +24,7 @@ export function TestimonialsSection() {
         {testimonios.map((t) => (
           <div key={t.autor} className="bg-parchment p-10 text-left">
             <div className="text-amber text-lg mb-4">★★★★★</div>
-            <p className="font-serif text-lg italic font-light text-forest leading-relaxed mb-6">
+            <p className="font-serif text-xl italic font-light text-forest leading-relaxed mb-6">
               &quot;{t.texto}&quot;
             </p>
             <p className="font-sans text-[0.75rem] tracking-[0.1em] uppercase text-soft">

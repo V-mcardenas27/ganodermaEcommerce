@@ -17,13 +17,13 @@ export function AboutSection() {
           Cultivado con <em className="text-sage">respeto</em><br />
           por la naturaleza
         </h2>
-        <p className="font-sans text-sm font-light text-mist leading-loose mb-5">
+        <p className="font-sans text-lg font-light text-mist leading-loose mb-5">
           Nos apasiona llevar a tu hogar el verdadero poder del Ganoderma Lucidum.
           Trabajamos directamente con cultivadores responsables que respetan los
           ciclos naturales del hongo, garantizando la máxima concentración de
           principios activos en cada producto.
         </p>
-        <p className="font-sans text-sm font-light text-mist leading-loose mb-10">
+        <p className="font-sans text-lg font-light text-mist leading-loose mb-10">
           Cada lote pasa por análisis de pureza y potencia. Sin rellenos, sin
           aditivos artificiales. Solo la sabiduría de la naturaleza, concentrada
           para ti.

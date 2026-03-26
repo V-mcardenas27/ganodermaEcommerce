@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/Badge'
 import { formatPrecio } from '@/lib/utils'
 import productImage from '../../../public/product.png'
 
-const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER ?? '573000000000'
+const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER ?? '573134545664'
 const WA_MSG = encodeURIComponent(
   'Hola, quiero pedir las *Cápsulas de Ganoderma Lucidum* (60 cápsulas · 420mg). ¿Me puede dar más información?'
 )
@@ -55,10 +55,10 @@ export function ProductSection() {
             <span className="w-8 h-px bg-amber" />
           </div>
 
-          <h3 className="font-serif text-3xl md:text-4xl font-light text-forest leading-tight mb-1">
+          <h3 className="font-serif text-4xl md:text-4xl font-light text-forest leading-tight mb-1">
             Cápsulas de
           </h3>
-          <h3 className="font-serif text-3xl md:text-4xl italic text-fern leading-tight mb-4">
+          <h3 className="font-serif text-4xl md:text-4xl italic text-fern leading-tight mb-4">
             Ganoderma Lucidum
           </h3>
 
@@ -66,7 +66,7 @@ export function ProductSection() {
             60 cápsulas · 420mg por cápsula · 1 mes de tratamiento
           </p>
 
-          <p className="font-sans text-[0.9rem] font-light text-soft leading-loose mb-6">
+          <p className="font-sans text-[1.1rem] font-light text-soft leading-loose mb-6">
             Ganoderma puro encapsulado con la dosis diaria recomendada para máxima
             absorción. Sin rellenos, sin aditivos artificiales. Solo la sabiduría
             del Reishi concentrada en cada cápsula.
@@ -75,7 +75,7 @@ export function ProductSection() {
           {/* Características */}
           <div className="grid grid-cols-2 gap-2 mb-8">
             {caracteristicas.map((c) => (
-              <div key={c} className="flex items-center gap-2 font-sans text-[0.78rem] text-soft">
+              <div key={c} className="flex items-center gap-2 font-sans text-[0.9rem] text-soft">
                 <span className="text-fern font-semibold">✓</span>
                 {c}
               </div>

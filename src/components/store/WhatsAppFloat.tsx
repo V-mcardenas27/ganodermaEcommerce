@@ -1,4 +1,4 @@
-const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER ?? '573000000000'
+const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER ?? '573134545664'
 const WA_MSG = encodeURIComponent('Hola, me interesa un producto de Ganoderma')
 
 export function WhatsAppFloat() {

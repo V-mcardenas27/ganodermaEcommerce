@@ -10,7 +10,7 @@ const beneficios = [
   {
     icon: '/icons/mental.png',
     nombre: 'Claridad Mental',
-    desc: 'Adaptógeno natural que reduce el cortisol, mejora la concentración y combate la fatiga mental crónica.',
+    desc: 'Adaptógeno natural que reduce el cortisol, mejora la concentración y combate la fatiga mental.',
   },
   {
     icon: '/icons/cardiovascular.png',
@@ -25,7 +25,7 @@ const beneficios = [
   {
     icon: '/icons/energia.png',
     nombre: 'Energía Vital',
-    desc: 'Mejora la oxigenación celular y la producción de ATP brindando energía sostenida sin efectos rebote.',
+    desc: 'Mejora la oxigenación celular, la producción de ATP aumentando la fortaleza en las celulas y previniendo el envejecimiento.',
   },
   {
     icon: '/icons/antioxidante.png',
@@ -46,7 +46,7 @@ export function BenefitsSection() {
             <em className="text-fern">transforma tu salud?</em>
           </h2>
         </div>
-        <p className="font-sans text-sm font-light text-soft leading-loose">
+        <p className="font-sans text-lg font-light text-soft leading-loose">
           Conocido en Asia como el &quot;Hongo de la Inmortalidad&quot;, el Ganoderma Lucidum
           ha sido venerado por más de 4.000 años. Sus polisacáridos, triterpenos y
           germanio orgánico lo convierten en uno de los adaptógenos más completos
@@ -73,7 +73,7 @@ export function BenefitsSection() {
             <h3 className="font-serif text-xl font-semibold text-forest mb-2">
               {b.nombre}
             </h3>
-            <p className="font-sans text-[0.83rem] text-soft leading-relaxed">
+            <p className="font-sans text-[0.93rem] text-soft leading-relaxed">
               {b.desc}
             </p>
           </div>

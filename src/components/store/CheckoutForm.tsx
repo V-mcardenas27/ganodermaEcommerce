@@ -60,14 +60,14 @@ export function CheckoutForm() {
         </p>
         <div className="flex justify-between items-start mb-4">
           <div>
-            <p className="font-serif text-lg">Cápsulas Ganoderma Lucidum</p>
-            <p className="font-sans text-[0.75rem] text-mist">60 cápsulas · 420mg</p>
+            <p className="font-serif text-xl">Cápsulas Ganoderma Lucidum</p>
+            <p className="font-sans text-[0.85rem] text-mist">60 cápsulas · 420mg</p>
           </div>
           <p className="font-serif text-xl text-gold">{formatPrecio(PRECIO_UNITARIO)}</p>
         </div>
         <div className="flex items-center justify-between pt-3 border-t border-sage/20">
           <div className="flex items-center gap-3">
-            <span className="font-sans text-[0.75rem] text-mist">Cantidad:</span>
+            <span className="font-sans text-[0.85rem] text-mist">Cantidad:</span>
             <select
               {...register('cantidad', { valueAsNumber: true })}
               className="bg-moss text-cream font-sans text-sm px-3 py-1.5 border border-sage/30 outline-none"
@@ -78,7 +78,7 @@ export function CheckoutForm() {
             </select>
           </div>
           <div className="text-right">
-            <p className="font-sans text-[0.7rem] text-mist">Total</p>
+            <p className="font-sans text-[0.8rem] text-mist">Total</p>
             <p className="font-serif text-2xl text-gold">{formatPrecio(total)}</p>
           </div>
         </div>
