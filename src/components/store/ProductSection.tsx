@@ -13,10 +13,10 @@ const WA_MSG = encodeURIComponent(
 const caracteristicas = [
   '100% natural y puro',
   'Sin aditivos artificiales',
-  'Dosis diaria recomendada',
-  '+500 compuestos activos',
-  'Alta biodisponibilidad',
-  '1 mes de tratamiento',
+  'Ideal para tu rutina diaria',
+  'Fórmula práctica y fácil de tomar',
+  'Alta concentración de compuestos bioactivos',
+  'Presentación para 30 días de uso',
 ]
 
 export function ProductSection() {
@@ -63,13 +63,13 @@ export function ProductSection() {
           </h3>
 
           <p className="font-sans text-[0.78rem] tracking-[0.12em] uppercase text-soft mb-6 pb-6 border-b border-sage/15">
-            60 cápsulas · 420mg por cápsula · 1 mes de tratamiento
+            60 cápsulas · 420mg por cápsula · 30 días de uso recomendado
           </p>
 
           <p className="font-sans text-[1.1rem] font-light text-soft leading-loose mb-6">
-            Ganoderma puro encapsulado con la dosis diaria recomendada para máxima
-            absorción. Sin rellenos, sin aditivos artificiales. Solo la sabiduría
-            del Reishi concentrada en cada cápsula.
+            Ganoderma puro encapsulado, cuidadosamente seleccionado para ofrecer una experiencia práctica, natural y de alta calidad.
+            <br />
+            Sin rellenos. Sin aditivos artificiales. Solo pureza en cada cápsula.
           </p>
 
           {/* Características */}

@@ -4,32 +4,32 @@ import { SectionLabel } from '@/components/ui/SectionLabel'
 const beneficios = [
   {
     icon: '/icons/inmune.png',
-    nombre: 'Sistema Inmune',
+    nombre: 'Apoyo al Sistema Inmune',
     desc: 'Los beta-glucanos estimulan y modulan las defensas naturales del organismo, fortaleciéndolo ante enfermedades.',
   },
   {
     icon: '/icons/mental.png',
-    nombre: 'Claridad Mental',
+    nombre: 'Bienestar Mental y Enfoque',
     desc: 'Adaptógeno natural que reduce el cortisol, mejora la concentración y combate la fatiga mental.',
   },
   {
     icon: '/icons/cardiovascular.png',
-    nombre: 'Salud Cardiovascular',
-    desc: 'Regula la presión arterial, reduce el colesterol LDL y mejora la circulación gracias a sus triterpenos activos.',
+    nombre: 'Equilibrio Para un Estilo de Vida Saludable',
+    desc: 'Mejora la circulación gracias a sus triterpenos activos.',
   },
   {
     icon: '/icons/sueno.png',
-    nombre: 'Sueño Profundo',
-    desc: 'Favorece el descanso reparador y reduce el insomnio al equilibrar el sistema nervioso.',
+    nombre: 'Acompañamiento al Descanso y Relajación',
+    desc: 'Favorece el descanso reparador al equilibrar el sistema nervioso.',
   },
   {
     icon: '/icons/energia.png',
-    nombre: 'Energía Vital',
-    desc: 'Mejora la oxigenación celular, la producción de ATP aumentando la fortaleza en las celulas y previniendo el envejecimiento.',
+    nombre: 'Vitalidad y Energía Sostenida',
+    desc: 'Mejora la oxigenación celular, la producción de ATP aumentando la fortaleza en las celulas.',
   },
   {
     icon: '/icons/antioxidante.png',
-    nombre: 'Antioxidante Potente',
+    nombre: 'Acción Antioxidante Natural',
     desc: 'Neutraliza los radicales libres que aceleran el envejecimiento celular, protegiendo órganos y tejidos.',
   },
 ]
@@ -42,15 +42,14 @@ export function BenefitsSection() {
         <div>
           <SectionLabel>Propiedades</SectionLabel>
           <h2 className="font-serif text-4xl md:text-5xl font-light text-forest leading-tight">
-            ¿Por qué el Ganoderma<br />
-            <em className="text-fern">transforma tu salud?</em>
+            ¿Por qué elegir<br />
+            <em className="text-fern">Ganoderma Lucidum?</em>
           </h2>
         </div>
         <p className="font-sans text-lg font-light text-soft leading-loose">
-          Conocido en Asia como el &quot;Hongo de la Inmortalidad&quot;, el Ganoderma Lucidum
-          ha sido venerado por más de 4.000 años. Sus polisacáridos, triterpenos y
-          germanio orgánico lo convierten en uno de los adaptógenos más completos
-          de la naturaleza.
+          Conocido tradicionalmente como el “Hongo de la Inmortalidad”, el Ganoderma Lucidum ha sido valorado durante miles de años por su riqueza natural en polisacáridos, triterpenos y compuestos bioactivos.
+          <br />
+          Una fórmula pensada para quienes buscan una alternativa natural que acompañe su rutina de bienestar.
         </p>
       </div>
 

@@ -16,17 +16,18 @@ export function HeroSection() {
       {/* Contenido izquierdo */}
       <div className="relative z-10 flex flex-col justify-center px-8 md:px-16 pt-32 pb-16 animate-[fadeUp_0.9s_ease_both]">
         <SectionLabel light>
-          ¡Revitaliza tu salud con Ganoderma Lucidum!
+          Ganoderma Lucidum
         </SectionLabel>
 
-        <h1 className="font-serif text-5xl md:text-7xl font-light text-cream leading-[1.1] mb-6">
-          El hongo de<br />
-          <em className="text-gold not-italic font-light">la eterna juventud</em>
+        <h1 className="font-serif text-5xl md:text-6xl font-light text-cream leading-[1.1] mb-6">
+          Naturaleza, tradición y<br />
+          <em className="text-gold not-italic font-light">bienestar en cada cápsula</em>
         </h1>
 
-        <p className="font-sans text-lg font-light text-mist leading-relaxed max-w-sm mb-10">
-          Ganoderma Lucidum, mejora tu sitema inmune, aumenta
-          tu energía, y te ayuda a combatir el cansancio y el envejecimiento.
+        <p className="font-sans text-lg font-light text-mist leading-relaxed max-w-xl mb-10">
+          Descubre el poder ancestral del Ganoderma Lucidum, un hongo reconocido por siglos por acompañar la vitalidad y el equilibrio natural del cuerpo.
+          <br />
+          Una forma práctica y natural de sumar bienestar a tu rutina diaria.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
@@ -34,7 +35,7 @@ export function HeroSection() {
             href="#productos"
             className="inline-flex items-center gap-3 bg-amber text-white font-sans text-[0.8rem] tracking-widest uppercase px-7 py-4 hover:bg-gold hover:-translate-y-0.5 transition-all duration-200"
           >
-            Ver producto
+            Quiero conocerlo
             <ArrowRight size={16} />
           </a>
           <Link

@@ -19,7 +19,7 @@ const jost = Jost({
 
 export const metadata: Metadata = {
   title: 'GanodermaVida — Cápsulas de Ganoderma Lucidum',
-  description: 'Ganoderma Lucidum puro en cápsulas. 60 cápsulas de 420mg. Medicina ancestral china para tu bienestar.',
+  description: 'Ganoderma Lucidum puro en cápsulas. 60 cápsulas de 420mg.',
   keywords: ['ganoderma', 'reishi', 'cápsulas', 'colombia', 'bienestar', 'natural'],
 }
 

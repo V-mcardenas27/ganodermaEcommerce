@@ -55,6 +55,9 @@ export function Footer() {
         <p className="font-sans text-[0.75rem] text-mist/50">
           © 2026 GanodermaVida — Todos los derechos reservados
         </p>
+        <p className="font-sans text-[0.75rem] text-mist/50">
+          Este producto es un suplemento natural. No es un medicamento y no sustituye tratamientos médicos. <br />Los resultados pueden variar según cada persona.
+        </p>
       </div>
     </footer>
   )

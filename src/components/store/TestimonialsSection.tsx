@@ -1,9 +1,9 @@
 import { SectionLabel } from '@/components/ui/SectionLabel'
 
 const testimonios = [
-  { texto: 'Llevo 3 meses tomando las cápsulas y mis niveles de energía son increíbles. Dormía mal desde hace años y ahora descanso profundamente.', autor: 'María C.', ciudad: 'Bogotá' },
-  { texto: 'Mi médico quedó sorprendido con mis análisis de colesterol después de 2 meses. Producto de calidad real.', autor: 'Carlos M.', ciudad: 'Medellín' },
-  { texto: 'La mejor inversión para mi salud. El servicio por WhatsApp es muy rápido y el producto llegó en perfecto estado.', autor: 'Sandra R.', ciudad: 'Cali' },
+  { texto: 'Desde que lo incorporé a mi rutina, me siento con más energía y más equilibrio durante el día.', autor: 'María C.', ciudad: 'Bogotá' },
+  { texto: 'Me gusta porque se siente como un producto limpio, natural y de excelente calidad.', autor: 'Carlos M.', ciudad: 'Medellín' },
+  { texto: 'Lo pedí por WhatsApp y llegó rápido. Me encantó la presentación y la experiencia de compra.', autor: 'Sandra R.', ciudad: 'Cali' },
 ]
 
 export function TestimonialsSection() {

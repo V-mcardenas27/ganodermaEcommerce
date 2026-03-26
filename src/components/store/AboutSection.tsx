@@ -4,7 +4,7 @@ import ganoImage from '../../../public/gano-hongo2.webp'
 
 const stats = [
   { num: '100%', label: 'Natural & puro' },
-  { num: '+500', label: 'Compuestos activos' },
+  { num: '+500', label: 'Compuestos bioactivos' },
   { num: '4mil', label: 'Años de uso' },
 ]
 
@@ -18,15 +18,10 @@ export function AboutSection() {
           por la naturaleza
         </h2>
         <p className="font-sans text-lg font-light text-mist leading-loose mb-5">
-          Nos apasiona llevar a tu hogar el verdadero poder del Ganoderma Lucidum.
-          Trabajamos directamente con cultivadores responsables que respetan los
-          ciclos naturales del hongo, garantizando la máxima concentración de
-          principios activos en cada producto.
+          Nos inspira llevar hasta tu hogar el verdadero valor del Ganoderma Lucidum, trabajando con procesos responsables y seleccionando materia prima de alta calidad.
         </p>
         <p className="font-sans text-lg font-light text-mist leading-loose mb-10">
-          Cada lote pasa por análisis de pureza y potencia. Sin rellenos, sin
-          aditivos artificiales. Solo la sabiduría de la naturaleza, concentrada
-          para ti.
+          Cada lote es cuidadosamente revisado para ofrecerte un producto confiable, limpio y alineado con una filosofía de bienestar natural.
         </p>
 
         <div className="grid grid-cols-3 gap-6 pt-8 border-t border-sage/20">

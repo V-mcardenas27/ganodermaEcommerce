@@ -7,8 +7,8 @@ export function CtaBanner() {
   return (
     <section id="contacto" className="py-20 px-8 md:px-16 bg-amber flex flex-col md:flex-row items-center justify-between gap-8">
       <h2 className="font-serif text-3xl md:text-4xl font-light text-white leading-tight">
-        ¿Listo para comenzar tu<br />
-        <em>transformación natural?</em>
+        Empieza hoy tu<br />
+        <em>experiencia natural</em>
       </h2>
 
       <a
