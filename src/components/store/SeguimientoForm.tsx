@@ -153,7 +153,7 @@ export function SeguimientoForm() {
                           } ${actual ? 'ring-2 ring-amber ring-offset-2' : ''}`}>
                             <Icon size={14} />
                           </div>
-                          <p className={`font-sans text-[0.6rem] text-center leading-tight ${
+                          <p className={`font-sans text-[0.8rem] text-center leading-tight ${
                             completado ? 'text-amber font-medium' : 'text-gray-400'
                           }`}>
                             {label}
