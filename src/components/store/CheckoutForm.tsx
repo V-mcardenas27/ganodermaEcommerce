@@ -2,14 +2,13 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Loader2, ShieldCheck } from 'lucide-react'
+import { Loader2, ShieldCheck, Package } from 'lucide-react'
 import { checkoutSchema, type CheckoutSchema } from '@/lib/validations'
 import { FormField, Input } from '@/components/ui/FormField'
 import { formatPrecio } from '@/lib/utils'
-import type { CheckoutResponse } from '@/types'
 
 const PRECIO_UNITARIO = 59800
-const WA_NUMBER = '573217657670'
+const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER ?? '573000000000'
 
 export function CheckoutForm() {
   const [loading, setLoading] = useState(false)
@@ -34,15 +33,14 @@ export function CheckoutForm() {
         body: JSON.stringify(data),
       })
 
-      const json: CheckoutResponse = await res.json()
+      const json = await res.json()
 
       if (!res.ok || !json.success) {
         throw new Error(json.error ?? 'Error al procesar el pedido')
       }
 
-      if (json.init_point) {
-        window.location.href = json.init_point
-      }
+      window.location.href = `/confirmacion?numero_orden=${json.numero_orden}`
+
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Error inesperado'
       setError(msg)
@@ -60,14 +58,14 @@ export function CheckoutForm() {
         </p>
         <div className="flex justify-between items-start mb-4">
           <div>
-            <p className="font-serif text-xl">Cápsulas Ganoderma Lucidum</p>
-            <p className="font-sans text-[0.85rem] text-mist">60 cápsulas · 420mg</p>
+            <p className="font-serif text-lg">Cápsulas Ganoderma Lucidum</p>
+            <p className="font-sans text-[0.75rem] text-mist">60 cápsulas · 420mg</p>
           </div>
           <p className="font-serif text-xl text-gold">{formatPrecio(PRECIO_UNITARIO)}</p>
         </div>
         <div className="flex items-center justify-between pt-3 border-t border-sage/20">
           <div className="flex items-center gap-3">
-            <span className="font-sans text-[0.85rem] text-mist">Cantidad:</span>
+            <span className="font-sans text-[0.75rem] text-mist">Cantidad:</span>
             <select
               {...register('cantidad', { valueAsNumber: true })}
               className="bg-moss text-cream font-sans text-sm px-3 py-1.5 border border-sage/30 outline-none"
@@ -78,9 +76,20 @@ export function CheckoutForm() {
             </select>
           </div>
           <div className="text-right">
-            <p className="font-sans text-[0.8rem] text-mist">Total</p>
+            <p className="font-sans text-[0.7rem] text-mist">Total</p>
             <p className="font-serif text-2xl text-gold">{formatPrecio(total)}</p>
           </div>
+        </div>
+      </div>
+
+      {/* Aviso pago contra entrega */}
+      <div className="flex items-start gap-3 bg-parchment border border-sage/20 px-4 py-4">
+        <Package size={18} className="text-amber mt-0.5 flex-shrink-0" />
+        <div>
+          <p className="font-sans text-sm font-medium text-forest">Pago contra entrega</p>
+          <p className="font-sans text-[0.78rem] text-soft mt-0.5">
+            No realizas ningún pago ahora. Pagas en efectivo cuando recibas tu pedido.
+          </p>
         </div>
       </div>
 
@@ -141,14 +150,14 @@ export function CheckoutForm() {
         </div>
       </div>
 
-      {/* Error general */}
+      {/* Error */}
       {error && (
         <div className="bg-red-50 border border-red-200 px-4 py-3">
           <p className="font-sans text-sm text-red-600">{error}</p>
         </div>
       )}
 
-      {/* Botón pagar */}
+      {/* Botón confirmar pedido */}
       <button
         type="submit"
         disabled={loading}
@@ -160,18 +169,18 @@ export function CheckoutForm() {
             Procesando...
           </>
         ) : (
-          `Pagar con MercadoPago — ${formatPrecio(total)}`
+          `Confirmar pedido — ${formatPrecio(total)}`
         )}
       </button>
 
       <div className="flex items-center justify-center gap-2 text-soft">
         <ShieldCheck size={16} className="text-fern" />
         <p className="font-sans text-[0.72rem]">
-          Pago 100% seguro · SSL cifrado
+          Pagas en efectivo al recibir tu pedido · Sin riesgo
         </p>
       </div>
 
-      {/* Separador */}
+      {/* Separador WhatsApp */}
       <div className="relative flex items-center gap-4">
         <div className="flex-1 h-px bg-mist/40" />
         <span className="font-sans text-[0.72rem] text-soft/60 uppercase tracking-wider">o</span>

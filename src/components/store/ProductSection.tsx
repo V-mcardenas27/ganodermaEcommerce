@@ -4,6 +4,7 @@ import { SectionLabel } from '@/components/ui/SectionLabel'
 import { Badge } from '@/components/ui/Badge'
 import { formatPrecio } from '@/lib/utils'
 import productImage from '../../../public/product.png'
+import { Package } from 'lucide-react'
 
 const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER ?? '573134545664'
 const WA_MSG = encodeURIComponent(
@@ -91,15 +92,14 @@ export function ProductSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              {/* Pago en línea */}
               <Link
                 href="/checkout"
                 className="inline-flex items-center justify-center gap-2 bg-amber text-white font-sans text-[0.78rem] tracking-widest uppercase px-6 py-3 hover:bg-gold hover:-translate-y-0.5 transition-all duration-200"
               >
-                Pagar en línea
+                <Package size={15} />
+                Pedir contra entrega
               </Link>
 
-              {/* WhatsApp */}
               <a
                 href={`https://wa.me/${WA_NUMBER}?text=${WA_MSG}`}
                 target="_blank"

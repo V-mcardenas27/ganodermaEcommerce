@@ -1,8 +1,9 @@
 export const dynamic = 'force-dynamic'
 import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
-import { crearPreferencia } from '@/lib/mercadopago'
 import { checkoutSchema } from '@/lib/validations'
+import { resend, FROM_EMAIL } from '@/lib/resend'
+import { emailConfirmacionCliente, emailNuevoPedidoAdmin } from '@/lib/emails'
 
 export async function POST(req: NextRequest) {
   try {
@@ -45,7 +46,7 @@ export async function POST(req: NextRequest) {
       clienteId = nuevoCliente.id
     }
 
-    // Crear pedido
+    // Crear pedido con estado pendiente (contra entrega)
     const { data: pedido, error: errorPedido } = await supabaseAdmin
       .from('pedidos')
       .insert({
@@ -56,7 +57,7 @@ export async function POST(req: NextRequest) {
         total,
         estado: 'pendiente',
         canal: 'web',
-        metodo_pago: 'mercadopago',
+        metodo_pago: 'efectivo',
       })
       .select('id, numero_orden')
       .single()
@@ -69,21 +70,51 @@ export async function POST(req: NextRequest) {
       .insert({
         pedido_id: pedido.id,
         estado: 'pendiente',
-        nota: 'Pedido creado, esperando pago',
+        nota: 'Pedido recibido — pago contra entrega',
       })
 
-    // Crear preferencia en MercadoPago
-    const preferencia = await crearPreferencia({
-      numeroOrden: pedido.numero_orden,
+    // Email al cliente
+    const templateCliente = emailConfirmacionCliente({
+      nombre,
+      orden: pedido.numero_orden,
+      total,
+      producto: 'Cápsulas Ganoderma Lucidum',
       cantidad,
-      precioUnitario,
-      nombreCliente: nombre,
-      email,
+      direccion,
+      ciudad,
     })
+
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: email,
+      subject: templateCliente.subject,
+      html: templateCliente.html,
+    })
+
+    // Email al admin
+    const adminEmail = process.env.ADMIN_EMAIL
+    if (adminEmail) {
+      const templateAdmin = emailNuevoPedidoAdmin({
+        orden: pedido.numero_orden,
+        nombreCliente: nombre,
+        email,
+        telefono,
+        total,
+        ciudad,
+        direccion,
+        appUrl: process.env.NEXT_PUBLIC_APP_URL!,
+      })
+
+      await resend.emails.send({
+        from: FROM_EMAIL,
+        to: adminEmail,
+        subject: templateAdmin.subject,
+        html: templateAdmin.html,
+      })
+    }
 
     return NextResponse.json({
       success: true,
-      init_point: preferencia.init_point,
       numero_orden: pedido.numero_orden,
     })
 

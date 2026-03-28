@@ -29,10 +29,10 @@ export default function CheckoutPage() {
       <div className="max-w-xl mx-auto px-6 py-12">
         <div className="mb-8">
           <p className="font-sans text-[0.7rem] tracking-[0.2em] uppercase text-amber mb-2">
-            Paso 1 de 2
+            Pago contra entrega
           </p>
           <h1 className="font-serif text-3xl font-light text-forest">
-            Completa tu pedido
+            Confirma tu pedido
           </h1>
         </div>
 
