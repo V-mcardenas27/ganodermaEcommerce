@@ -215,14 +215,33 @@ export function emailEstadoActualizado({
 }: {
   nombre: string
   orden: string
-  estado: 'enviado' | 'entregado'
+  estado: 'confirmado' | 'enviado' | 'entregado'
 }) {
-  const esEnviado = estado === 'enviado'
+  const config = {
+    confirmado: {
+      emoji: '✅',
+      titulo: '¡Tu pedido fue confirmado!',
+      mensaje: 'tu pedido ha sido confirmado y está siendo preparado para envío.',
+      extra: '📦 Te avisaremos cuando sea enviado.',
+    },
+    enviado: {
+      emoji: '🚚',
+      titulo: '¡Tu pedido va en camino!',
+      mensaje: 'tu pedido ha sido enviado. Recuerda que el pago es contra entrega.',
+      extra: '💵 Ten listo el pago al momento de recibir.',
+    },
+    entregado: {
+      emoji: '🎉',
+      titulo: '¡Pedido entregado!',
+      mensaje: 'tu pedido ha sido entregado exitosamente.',
+      extra: '🍄 ¡Esperamos que disfrutes tu Ganoderma Lucidum!',
+    },
+  }
+
+  const c = config[estado]
 
   return {
-    subject: esEnviado
-      ? `🚚 Tu pedido ${orden} ha sido enviado`
-      : `✅ Tu pedido ${orden} ha sido entregado`,
+    subject: `${c.emoji} ${c.titulo} — ${orden}`,
     html: `
 <!DOCTYPE html>
 <html lang="es">
@@ -231,44 +250,34 @@ export function emailEstadoActualizado({
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f0e8;padding:40px 20px;">
     <tr><td align="center">
       <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;max-width:560px;width:100%;">
-
         <tr>
           <td style="background:#1a2e1a;padding:32px 40px;text-align:center;">
             <h1 style="margin:0;font-family:Georgia,serif;font-size:28px;font-weight:300;color:#f5f0e8;">
-              Ganoderma<span style="color:#e6a91f;font-style:italic;">Vida</span>
+              Gano<span style="color:#e6a91f;font-style:italic;">Vita</span>
             </h1>
           </td>
         </tr>
-
         <tr>
           <td style="padding:40px;text-align:center;">
-            <div style="font-size:56px;margin-bottom:16px;">${esEnviado ? '🚚' : '✅'}</div>
+            <div style="font-size:56px;margin-bottom:16px;">${c.emoji}</div>
             <h2 style="margin:0 0 12px;font-family:Georgia,serif;font-size:26px;font-weight:300;color:#1a2e1a;">
-              ${esEnviado ? '¡Tu pedido va en camino!' : '¡Pedido entregado!'}
+              ${c.titulo}
             </h2>
-            <p style="margin:0 0 24px;font-size:14px;color:#5a5245;">
-              Hola <strong>${nombre}</strong>,
-              ${esEnviado
-                ? 'tu pedido ha sido enviado y pronto llegará a tu dirección.'
-                : 'tu pedido ha sido entregado. ¡Esperamos que lo disfrutes!'}
+            <p style="margin:0 0 16px;font-size:14px;color:#5a5245;">
+              Hola <strong>${nombre}</strong>, ${c.mensaje}
             </p>
-            <div style="background:#ede5d0;padding:12px 24px;display:inline-block;margin-bottom:24px;">
+            <div style="background:#ede5d0;padding:12px 24px;display:inline-block;margin-bottom:20px;">
               <p style="margin:0;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#5a5245;">Orden</p>
               <p style="margin:4px 0 0;font-family:Georgia,serif;font-size:20px;color:#1a2e1a;">${orden}</p>
             </div>
-            ${!esEnviado ? `
-            <p style="margin:0;font-size:13px;color:#4a7c4a;">
-              🍄 ¡Nos encantaría conocer tu experiencia con el Ganoderma!
-            </p>` : ''}
+            <p style="margin:0;font-size:13px;color:#4a7c4a;">${c.extra}</p>
           </td>
         </tr>
-
         <tr>
           <td style="background:#1a2e1a;padding:24px 40px;text-align:center;">
-            <p style="margin:0;font-size:12px;color:#8aab6e;">© 2026 GanodermaVida · Todos los derechos reservados</p>
+            <p style="margin:0;font-size:12px;color:#8aab6e;">© 2025 GanoVita · Todos los derechos reservados</p>
           </td>
         </tr>
-
       </table>
     </td></tr>
   </table>

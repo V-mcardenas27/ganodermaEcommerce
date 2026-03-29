@@ -1,7 +1,6 @@
 export type EstadoPedido =
   | 'pendiente'
-  | 'pagado'
-  | 'procesando'
+  | 'confirmado'
   | 'enviado'
   | 'entregado'
   | 'cancelado'

@@ -55,28 +55,28 @@ export async function PATCH(req: NextRequest) {
     .insert({ pedido_id: id, estado, nota: nota ?? `Estado actualizado a: ${estado}` })
 
     // Email automático al cambiar estado a enviado o entregado
-    if (estado === 'enviado' || estado === 'entregado') {
-    const { data: pedidoCompleto } = await supabaseAdmin
+    if (estado === 'confirmado' || estado === 'enviado' || estado === 'entregado') {
+      const { data: pedidoCompleto } = await supabaseAdmin
         .from('pedidos')
         .select('*, clientes(*)')
         .eq('id', id)
         .single()
 
-    if (pedidoCompleto?.clientes?.email) {
+      if (pedidoCompleto?.clientes?.email) {
         const template = emailEstadoActualizado({
-        nombre: pedidoCompleto.clientes.nombre,
-        orden: pedidoCompleto.numero_orden,
-        estado,
+          nombre: pedidoCompleto.clientes.nombre,
+          orden: pedidoCompleto.numero_orden,
+          estado,
         })
 
         await resend.emails.send({
-        from: FROM_EMAIL,
-        to: pedidoCompleto.clientes.email,
-        subject: template.subject,
-        html: template.html,
+          from: FROM_EMAIL,
+          to: pedidoCompleto.clientes.email,
+          subject: template.subject,
+          html: template.html,
         })
-    }
+      }
     }
 
-  return NextResponse.json({ ok: true })
-}
+      return NextResponse.json({ ok: true })
+    }

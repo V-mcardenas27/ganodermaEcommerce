@@ -10,13 +10,12 @@ type PedidoConHistorial = Pedido & {
 
 const TIMELINE = [
   { estado: 'pendiente',   label: 'Pendiente',   icon: Clock       },
-  { estado: 'pagado',      label: 'Pagado',       icon: CheckCircle },
-  { estado: 'procesando',  label: 'Procesando',   icon: Package     },
-  { estado: 'enviado',     label: 'Enviado',      icon: Truck       },
-  { estado: 'entregado',   label: 'Entregado',    icon: Home        },
+  { estado: 'confirmado',  label: 'Confirmado',  icon: CheckCircle },
+  { estado: 'enviado',     label: 'Enviado',     icon: Truck       },
+  { estado: 'entregado',   label: 'Entregado',   icon: Home        },
 ]
 
-const ORDEN_ESTADOS = ['pendiente','pagado','procesando','enviado','entregado']
+const ORDEN_ESTADOS = ['pendiente', 'confirmado', 'enviado', 'entregado']
 
 export function SeguimientoForm() {
   const [buscar, setBuscar] = useState('')
