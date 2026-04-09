@@ -1,7 +1,7 @@
 import { SectionLabel } from '@/components/ui/SectionLabel'
 
 const testimonios = [
-  { texto: 'Desde que lo incorporé a mi rutina, me siento con más energía y más equilibrio durante el día.', autor: 'María C.', ciudad: 'Bogotá' },
+  { texto: 'Hola ,Empecé a tomar Ganoderma Lucidum y me he sentido mucho mejor, con más energía. No es milagro, pero sí se nota el cambio , demasiado efectivo también en la regulación menstrual, Lo recomiendo', autor: 'María C.', ciudad: 'Bogotá' },
   { texto: 'Me gusta porque se siente como un producto limpio, natural y de excelente calidad.', autor: 'Carlos M.', ciudad: 'Medellín' },
   { texto: 'Lo pedí por WhatsApp y llegó rápido. Me encantó la presentación y la experiencia de compra.', autor: 'Sandra R.', ciudad: 'Cali' },
 ]
